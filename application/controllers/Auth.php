@@ -12,11 +12,11 @@ class Auth extends CI_Controller {
 	public function index()
 	{     
 		// ini untuk session gak boleh akses login kembali
-		if ($this->session->userdata('nik')){
+		if ($this->session->userdata('pn')){
 			redirect('user');
 		}
 
-		$this->form_validation->set_rules('nik','Nik','trim|required');
+		$this->form_validation->set_rules('pn','PN','trim|required');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required');
 
 		if($this->form_validation->run() == false){
@@ -34,10 +34,10 @@ class Auth extends CI_Controller {
 
 	private function _login()
 	{
-		$nik = $this->input->post('nik');
+		$pn = $this->input->post('pn');
 		$password = $this->input->post('password');
 
-		$user = $this->db->get_where('user',['nik' => $nik])->row_array();
+		$user = $this->db->get_where('user',['pn' => $pn])->row_array();
 		
 		//usernya ada
 		if($user) {
@@ -46,7 +46,7 @@ class Auth extends CI_Controller {
 				//cek passwordnya
 				if(password_verify($password, $user['password'])){
 					$data = [
-						'nik' 	=> $user['nik'],
+						'pn' 	=> $user['pn'],
 						'role_id'	=> $user['role_id']
 					];
 					$this->session->set_userdata($data);
