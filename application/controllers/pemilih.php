@@ -12,7 +12,7 @@ class Pemilih extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = 'Daftar Calon';
-		$data['user'] = $this->db->get_where('user',['nik' => $this->session->userdata('nik')])->row_array();
+		$data['user'] = $this->db->get_where('user',['pn' => $this->session->userdata('pn')])->row_array();
 		
 		
 		$this->load->view('template/header', $data);

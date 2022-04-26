@@ -20,8 +20,8 @@
                   </div>
                   <form class="user" method="post" action="<?= base_url('auth');  ?>">
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="nik" name="nik" placeholder="Enter NIK..." value="<?= set_value('nik');  ?>">
-                      <?= form_error('nik', '<small class="text-danger pl-3">','</small>'); ?>
+                      <input type="text" class="form-control form-control-user" id="pn" name="pn" placeholder="Enter PN..." value="<?= set_value('pn');  ?>">
+                      <?= form_error('pn', '<small class="text-danger pl-3">','</small>'); ?>
                     </div>
                     <div class="form-group">
                       <input type="password" class="form-control form-control-user" name="password" id="password" placeholder="Password">

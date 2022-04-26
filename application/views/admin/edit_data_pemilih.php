@@ -13,9 +13,9 @@
 
             <form action="<?= base_url().'admin/update_data_pemilih';  ?>" method="post">
               <div class="form-group">
-                <label>NIK</label>
+                <label>PN</label>
                 <input type="hidden" name="id_user" class="form-control" value="<?= $u->id_user ?>">
-                <input type="text" name="nik" class="form-control" value="<?= $u->nik ?>">
+                <input type="text" name="pn" class="form-control" value="<?= $u->pn ?>">
               </div>
 
               <div class="form-group">

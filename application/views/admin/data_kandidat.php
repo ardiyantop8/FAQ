@@ -15,7 +15,7 @@
         			<thead>
         				<tr>
         					<th>No</th>
-        					<th>NIK</th>
+        					<th>PN</th>
         					<th>Nama</th>
         					<th>Email</th>
         					<th>Role</th>
@@ -28,7 +28,7 @@
         				<?php $i = 1; ?>
         				<?php foreach($getkandidat->result_array() as $u) : 
         					$id        =$u['id_user'];
-                            $nik       =$u['nik'];
+                            $pn       =$u['pn'];
         					$name      =$u['name'];
         					$email     =$u['email'];
         					$role_id   =$u['role_id'];
@@ -37,7 +37,7 @@
         					?>
         				<tr>
         					<th scope="row"><?= $i;  ?></th>
-        					<td><?= $nik;  ?></td>
+        					<td><?= $pn;  ?></td>
         					<td><?= $name;  ?></td>
         					<td><?= $email;  ?></td>
         					<td><?= $role_id;  ?></td>

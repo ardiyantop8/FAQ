@@ -15,7 +15,7 @@ class Admin extends CI_Controller
 	public function index()
 	{
 		$data['title'] = 'Dashboard';
-		$data['user'] = $this->db->get_where('user', ['nik' => $this->session->userdata('nik')])->row_array();
+		$data['user'] = $this->db->get_where('user', ['pn' => $this->session->userdata('pn')])->row_array();
 		$data['datapemilih'] =  $this->db->from('user')->where('role_id', '3')->count_all_results();
 		$data['datakandidat'] =  $this->db->from('user')->where('role_id', '2')->count_all_results();
 		$data['datasubmenu'] =  $this->db->from('user_sub_menu')->where('is_active', '1')->count_all_results();
@@ -32,7 +32,7 @@ class Admin extends CI_Controller
 	public function Download()
 	{
 		$data['title'] = 'Download table role';
-		$data['user'] = $this->db->get_where('user', ['nik' => $this->session->userdata('nik')])->row_array();
+		$data['user'] = $this->db->get_where('user', ['pn' => $this->session->userdata('pn')])->row_array();
 		// echo "<pre>";print_r($data['user']);die;
 
 		$this->load->view('template/header', $data);
@@ -60,7 +60,7 @@ class Admin extends CI_Controller
 	public function role()
 	{
 		$data['title'] = 'Role';
-		$data['user'] = $this->db->get_where('user', ['nik' => $this->session->userdata('nik')])->row_array();
+		$data['user'] = $this->db->get_where('user', ['pn' => $this->session->userdata('pn')])->row_array();
 
 		// nama table    ambil semua = result
 		$data['role']	= $this->db->get('user_role')->result_array();
@@ -89,7 +89,7 @@ class Admin extends CI_Controller
 	public function roleaccess($role_id)
 	{
 		$data['title'] = 'Role Access';
-		$data['user'] = $this->db->get_where('user', ['nik' => $this->session->userdata('nik')])->row_array();
+		$data['user'] = $this->db->get_where('user', ['pn' => $this->session->userdata('pn')])->row_array();
 
 		// nama table    ambil semua = result
 		$data['role']	= $this->db->get_where('user_role', ['id' => $role_id])->row_array();
@@ -128,7 +128,7 @@ class Admin extends CI_Controller
 	public function datapemilih()
 	{
 		$data['title'] = 'Data Pemilih';
-		$data['user'] = $this->db->get_where('user', ['nik' => $this->session->userdata('nik')])->row_array();
+		$data['user'] = $this->db->get_where('user', ['pn' => $this->session->userdata('pn')])->row_array();
 
 		$this->load->model('Menu_model', 'menu');
 		$data['getpemilih'] = $this->menu->getDataPemilih();
@@ -145,7 +145,7 @@ class Admin extends CI_Controller
 	public function datakandidat()
 	{
 		$data['title'] = 'Data Kandidat';
-		$data['user'] = $this->db->get_where('user', ['nik' => $this->session->userdata('nik')])->row_array();
+		$data['user'] = $this->db->get_where('user', ['pn' => $this->session->userdata('pn')])->row_array();
 
 		$this->load->model('Menu_model', 'menu');
 		$data['getkandidat'] = $this->menu->getDataKandidat();
@@ -200,7 +200,7 @@ class Admin extends CI_Controller
 	public function lihat_data_pemilih($id_user)
 	{
 		$data['title'] = 'Detail data pemilih';
-		$data['user'] = $this->db->get_where('user', ['nik' => $this->session->userdata('nik')])->row_array();
+		$data['user'] = $this->db->get_where('user', ['pn' => $this->session->userdata('pn')])->row_array();
 		$this->load->model('Menu_model', 'menu');
 		$detail 		= $this->menu->detail_data_pemilih($id_user);
 		$data['detail'] = $detail;
@@ -215,7 +215,7 @@ class Admin extends CI_Controller
 	public function latihan_vue()
 	{
 		$data['title'] = 'Latihan Vue';
-		$data['user'] = $this->db->get_where('user', ['nik' => $this->session->userdata('nik')])->row_array();
+		$data['user'] = $this->db->get_where('user', ['pn' => $this->session->userdata('pn')])->row_array();
 		$this->load->view('template/header', $data);
 		$this->load->view('template/sidebar', $data);
 		$this->load->view('template/topbar', $data);

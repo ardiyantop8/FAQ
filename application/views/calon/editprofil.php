@@ -13,9 +13,9 @@
           <div class="col-lg-7">
             <?= form_open_multipart('calon/editprofil');?>
             <div class="form-group row">
-              <label for="nik" class="col-sm-2 col-form-label">NIK </label>
+              <label for="pn" class="col-sm-2 col-form-label">PN </label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="nik" id="nik" value="<?= $user['nik'] ;?>" readonly >
+                <input type="text" class="form-control" name="pn" id="pn" value="<?= $user['pn'] ;?>" readonly >
               </div>
             </div>
             <div class="form-group row">

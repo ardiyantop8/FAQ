@@ -17,7 +17,7 @@
               </div>
               <div class="col=md-8">
                 <div class="card-body">
-                  <h5 class="card-title">NIK        :<?= $user['nik'] ;?></h5>
+                  <h5 class="card-title">PN         :<?= $user['pn'] ;?></h5>
                   <p class="card-text"  >Name       :<?= $user['name'] ;?></p>
                   <p class="card-text"  >Email      :<?= $user['email'] ;?></p>
                   <p class="card-text"  ><smaill>Member since <?= date('d F Y',$user['date_created'])  ;?></smaill></p>

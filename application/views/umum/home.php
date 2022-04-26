@@ -51,7 +51,7 @@
             <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
               <div class="icon"><i class="bx bx-fingerprint"></i></div>
               <h4 class="title"><a href="">Masuk Form Login</a></h4>
-              <p class="description">Masukan NIK dan password yang telah diberikan oleh admin untuk masuk ke halaman user</p>
+              <p class="description">Masukan PN dan password yang telah diberikan oleh admin untuk masuk ke halaman user</p>
             </div>
 
             <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">

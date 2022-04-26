@@ -15,7 +15,7 @@
         			<thead>
         				<tr>
         					<th>No</th>
-        					<th>NIK</th>
+        					<th>PN</th>
         					<th>Nama</th>
         					<th>Email</th>
         					<th>Role</th>
@@ -26,17 +26,17 @@
         			<tbody>
         				<?php $i = 1; ?>
         				<?php foreach($getpemilih->result_array() as $u) : 
-        					$id            =$u['id_user'];
-                            $nik           =$u['nik'];
-        					$name          =$u['name'];
-        					$email         =$u['email'];
-        					$role_id       =$u['role_id'];
-                            $is_active     =$u['is_active'];
+        					$id            	=$u['id_user'];
+                            $pn           	=$u['pn'];
+        					$name          	=$u['name'];
+        					$email         	=$u['email'];
+        					$role_id       	=$u['role_id'];
+                            $is_active     	=$u['is_active'];
 
         					?>
         				<tr>
         					<th scope="row"><?= $i;  ?></th>
-        					<td><?= $nik;  ?></td>
+        					<td><?= $pn;  ?></td>
         					<td><?= $name;  ?></td>
         					<td><?= $email;  ?></td>
         					<td><?= $role_id;  ?></td>

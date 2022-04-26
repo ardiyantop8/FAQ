@@ -46,8 +46,8 @@ class Auth extends CI_Controller {
 				//cek passwordnya
 				if(password_verify($password, $user['password'])){
 					$data = [
-						'pn' 	=> $user['pn'],
-						'role_id'	=> $user['role_id']
+						'pn' 		=> isset($user['pn']) && !empty($user['pn']) ? $user['pn'] :'',
+						'role_id'	=> isset($user['role_id']) && !empty($user['role_id']) ? $user['role_id'] : ''
 					];
 					$this->session->set_userdata($data);
 					if ($user['role_id'] ==1) {
@@ -63,11 +63,11 @@ class Auth extends CI_Controller {
 					redirect('auth');
 				}
 			} else {
-				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> NIK is not active </div>');
+				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> PN is not active </div>');
 					redirect('auth');
 			}
 		} else {
-			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> NIK is not registered </div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> PN is not registered </div>');
 			redirect('auth');
 		}
 	}
@@ -77,9 +77,9 @@ class Auth extends CI_Controller {
 		$this->form_validation->set_rules('name','Name', 'required',[
 			'required'			=>'Nama lengkap harus diisi'
 		]);
-		$this->form_validation->set_rules('nik','Nik', 'required|trim|is_unique[user.nik]',[
-			'is_unique'			=> 'NIK sudah terdaftar',
-			'required'			=> 'NIK harus diisi',
+		$this->form_validation->set_rules('pn','PN', 'required|trim|is_unique[user.pn]',[
+			'is_unique'			=> 'PN sudah terdaftar',
+			'required'			=> 'PN harus diisi',
 			'trim'				=> 'Spcae tidak diperbolehkan'
 		]);
 		$this->form_validation->set_rules('email','Email', 'required|trim|valid_email|is_unique[user.email]',[
@@ -98,7 +98,7 @@ class Auth extends CI_Controller {
 				'trim'			=> 'Space tidak diperbolehkan'
 		]);
 		$this->form_validation->set_rules('password2','Password','required|trim|matches[password1]');
-		$data['user'] = $this->db->get_where('user',['nik' => $this->session->userdata('nik')])->row_array();
+		$data['user'] = $this->db->get_where('user',['pn' => $this->session->userdata('pn')])->row_array();
 		if($this->form_validation->run() == false){
 			$data['title'] = 'Form Registration';
 			$this->load->view('template/header', $data);
@@ -108,7 +108,7 @@ class Auth extends CI_Controller {
 			$this->load->view('template/footer');	
 		} else{
 			$data = [
-				'nik'			=> htmlspecialchars($this->input->post('nik', true)),
+				'pn'			=> htmlspecialchars($this->input->post('pn', true)),
 				'name' 			=> htmlspecialchars($this->input->post('name', true)),
 				'email' 		=> htmlspecialchars($this->input->post('email', true)),
 				'image' 		=> 'default.jpg',
@@ -127,7 +127,7 @@ class Auth extends CI_Controller {
 
 	public function logout()
 	{
-		$this->session->unset_userdata('nik');
+		$this->session->unset_userdata('pn');
 		$this->session->unset_userdata('role_id');
 
 		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> You have been logged out </div>');

@@ -12,7 +12,7 @@ class Calon extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = 'Home';
-		$data['user'] = $this->db->get_where('user',['nik' => $this->session->userdata('nik')])->row_array();
+		$data['user'] = $this->db->get_where('user',['pn' => $this->session->userdata('pn')])->row_array();
 
 		$this->load->view('template/header', $data);
 		$this->load->view('template/sidebar', $data);
@@ -26,8 +26,8 @@ class Calon extends CI_Controller {
 		
 
 		$data['title'] = 'Profil';
-		$data['user'] = $this->db->get_where('user',['nik' => $this->session->userdata('nik')])->row_array();
-		$data['visimisi'] = $this->db->get_where('visimisi',['id_visimisi' => $this->session->userdata('nik')])->row_array();
+		$data['user'] = $this->db->get_where('user',['pn' => $this->session->userdata('pn')])->row_array();
+		$data['visimisi'] = $this->db->get_where('visimisi',['id_visimisi' => $this->session->userdata('pn')])->row_array();
 		
 		
 		$this->load->view('template/header', $data);
@@ -40,7 +40,7 @@ class Calon extends CI_Controller {
 	public function editprofil()
 	{
 		$data['title'] = 'Edit Profil';
-		$data['user'] = $this->db->get_where('user',['nik' => $this->session->userdata('nik')])->row_array();
+		$data['user'] = $this->db->get_where('user',['pn' => $this->session->userdata('pn')])->row_array();
 
 		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email',[
 			'required'		=> 'Email tidak boleh kosong',
@@ -116,7 +116,7 @@ class Calon extends CI_Controller {
 			'min_length'		=>'Harus lebih dari 10 karakter'
 		]);
 		$data['title'] = 'Visi Misi';
-		$data['user'] = $this->db->get_where('user',['nik' => $this->session->userdata('nik')])->row_array();
+		$data['user'] = $this->db->get_where('user',['pn' => $this->session->userdata('pn')])->row_array();
 
 		$this->form_validation->set_rules('name', 'Full name', 'required');
 

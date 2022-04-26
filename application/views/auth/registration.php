@@ -10,8 +10,8 @@
               </div>
               <form class="user" method="post" action="<?= base_url('auth/registration'); ?>">
                 <div class="form-group">
-                  <input type="number" class="form-control form-control-user" id="nik" name="nik" placeholder="Masukan NIK">
-                  <?= form_error('nik', '<small class="text-danger pl-3">','</small>'); ?>
+                  <input type="number" class="form-control form-control-user" id="pn" name="pn" placeholder="Masukan PN">
+                  <?= form_error('pn', '<small class="text-danger pl-3">','</small>'); ?>
                 </div>
                 <div class="form-group">
                   <input type="text" class="form-control form-control-user" id="name" name="name" placeholder="Nama Lengkap" value="<?= set_value('name'); ?>">
